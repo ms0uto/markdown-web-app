@@ -1,0 +1,54 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container */
+main {
+    display: flex;
+}
+
+main div {
+    height: 95vh;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.title{
+    text-align: center;
+}
+
+/* Editor styles */
+.editor{
+    background-color: aquamarine;
+    flex-basis: 50%;
+}
+
+textarea{
+    min-height: 85%;
+    width: 100%;
+    border: 0 transparent;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+/* Markdown preview styles */
+.preview{
+    background-color: lightgoldenrodyellow;
+    flex-basis: 50%;
+}
+
+.markdown{
+    background-color: white;
+    height: 85%;
+}
+
+/* Footer styles */
+footer{
+    height: 5vh;
+    text-align: center;
+    font-weight: bold;
+    overflow: hidden;
+}

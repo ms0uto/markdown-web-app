@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <script>
+const defaultText = `Heading
+=======
+Sub-heading
+-----------
+ # Alternative heading #  
+Paragraphs are separated 
+by a blank line. 
+
+## Code block
+
+\`\`\`JavaScript
+function add(a, b){
+   return a + b;
+}
+add(3, 4);
+\`\`\`
+
+## Links
+
+[my personal github page](https://github.com/ms0uto)
+
+## Images
+
+![Code](https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Small.png)
+`
+    </script>
+    <main x-data="{markdown: defaultText}">
+        <div class="editor">
+            <h1 class="title">Editor</h1>
+            <textarea x-model="markdown" style="resize: none;"></textarea>
+        </div>
+        <div class="preview" >
+            <h1 class="title">Markdown Preview</h1>
+            <div class="markdown" x-html="marked.parse(markdown)">Example</div>
+        </div>
+    </main>
+    <footer>
+        <p>@Copyright developed by msouto 2022.</p>
+    </footer>
+</body>
+
+</html>
