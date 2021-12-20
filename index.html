@@ -9,17 +9,15 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <script>
-const defaultText = `Heading
+const defaultText = `Example Heading
 =======
 Sub-heading
 -----------
- # Alternative heading #  
-Paragraphs are separated 
-by a blank line. 
 
 ## Code block
 
@@ -31,22 +29,31 @@ add(3, 4);
 \`\`\`
 
 ## Links
+<a href="example.com" target="_blank">Personal github page (new tab)</a>
 
-[my personal github page](https://github.com/ms0uto)
+[Google home page (same tab)](https://google.com/)
 
 ## Images
 
 ![Code](https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Small.png)
 `
     </script>
+     <nav x-data="{ open: false }">
+        <button @click="open = ! open"><i class="fa fa-bars"></i></button>
+        <div x-show="open" @click.outside="open = false" x-transition>
+            <button><i class="fa fa-question-circle"></i></button>
+            <button><i class="fa fa-cloud-download"></i></button>
+            <button><i class="fa fa-folder"></i></button>
+        </div>
+    </nav>
     <main x-data="{markdown: defaultText}">
         <div class="editor">
-            <h1 class="title">Editor</h1>
+            <h2 class="title">Editor</h2>
             <textarea x-model="markdown" style="resize: none;"></textarea>
         </div>
         <div class="preview" >
-            <h1 class="title">Markdown Preview</h1>
-            <div class="markdown" x-html="marked.parse(markdown)">Example</div>
+            <h2 class="title">Markdown Preview</h2>
+            <div class="markdown" x-html="marked.parse(markdown)"></div>
         </div>
     </main>
     <footer>

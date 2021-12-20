@@ -1,7 +1,26 @@
 body{
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
+
+/* Navigation bar */
+nav {
+    display: flex;
+}
+/* Style buttons */
+nav button {
+    background-color: DodgerBlue; 
+    border: none; 
+    color: white; 
+    padding: 12px 16px; 
+    font-size: 14px; 
+    cursor: pointer;
+  }
+
+nav button:hover {
+    background-color: RoyalBlue;
+} 
 
 /* Main container */
 main {
@@ -9,7 +28,7 @@ main {
 }
 
 main div {
-    height: 95vh;
+    height: 90vh;
     padding-left: 2%;
     padding-right: 2%;
 }
@@ -27,7 +46,7 @@ main div {
 textarea{
     min-height: 85%;
     width: 100%;
-    border: 0 transparent;
+    border: 2px solid black;
 }
 
 textarea:focus, input:focus{
@@ -43,12 +62,17 @@ textarea:focus, input:focus{
 .markdown{
     background-color: white;
     height: 85%;
+    border: 2px solid black;
+}
+
+.markdown img{
+    object-fit: cover;
+    overflow: hidden;
 }
 
 /* Footer styles */
 footer{
-    height: 5vh;
+    height: 5%;
     text-align: center;
     font-weight: bold;
-    overflow: hidden;
 }
