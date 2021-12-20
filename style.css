@@ -65,11 +65,6 @@ textarea:focus, input:focus{
     border: 2px solid black;
 }
 
-.markdown img{
-    object-fit: cover;
-    overflow: hidden;
-}
-
 /* Footer styles */
 footer{
     height: 5%;
