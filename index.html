@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <script>
+<script>
 const defaultText = `Example Heading
 =======
 Sub-heading
@@ -37,23 +37,54 @@ add(3, 4);
 
 ![Code](https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Small.png)
 `
+    function download() {
+        var text = document.getElementById("text-area").value;
+        var blob = new Blob([text], { type: "text/markdown" });
+        var anchor = document.createElement("a");
+        date = Date.now();
+        anchor.download = `markdown-${date}.md`;
+        anchor.href = window.URL.createObjectURL(blob);
+        anchor.target = "_blank";
+        anchor.style.display = "none"; // just to be safe!
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+    }
+    function open() {
+        inputfile.click();
+        document.getElementById('inputfile')
+            .addEventListener('change', function() {
+            var fr=new FileReader();
+            fr.onload=function(){
+                var textarea = document.getElementById('text-area')
+                textarea.value = fr.result;
+                document.getElementById('markdown').innerHTML = marked.parse(fr.result);
+                textarea.focus();
+            }
+            fr.readAsText(this.files[0]);
+        })
+    }
     </script>
-     <nav x-data="{ open: false }">
-        <button @click="open = ! open"><i class="fa fa-bars"></i></button>
-        <div x-show="open" @click.outside="open = false" x-transition>
-            <button><i class="fa fa-question-circle"></i></button>
-            <button><i class="fa fa-cloud-download"></i></button>
-            <button><i class="fa fa-folder"></i></button>
+     <nav x-data="{ openMenu: false, openInfo: false }">
+        <button title="Menu" @click="openMenu = ! openMenu"><i class="fa fa-bars"></i></button>
+        <div x-show="openMenu" @click.outside="openInfo = false; openMenu = false" x-transition.duration.500ms>
+            <button title="Info" @click="openInfo = ! openInfo"><i class="fa fa-question-circle"></i></button>
+                <div class="infoDialog" x-show="openInfo">
+                    <p>Write your code on the left panel<br>and watch the result on the right side!</p>
+                </div>
+            <button title="Open" @click="open()"><i class="fa fa-folder"></i></button>
+                <input type="file"  style="display: none;" name="inputfile" id="inputfile">
+            <button title="Download" @click="download()"><i class="fa fa-cloud-download"></i></button>
         </div>
     </nav>
-    <main x-data="{markdown: defaultText}">
+    <main x-data="{ markdown: defaultText }">
         <div class="editor">
             <h2 class="title">Editor</h2>
-            <textarea x-model="markdown" style="resize: none;"></textarea>
+            <textarea id="text-area" x-model="markdown" style="resize: none;"></textarea>
         </div>
         <div class="preview" >
             <h2 class="title">Markdown Preview</h2>
-            <div class="markdown" x-html="marked.parse(markdown)"></div>
+            <div id="markdown" x-html="marked.parse(markdown)"></div>
         </div>
     </main>
     <footer>
