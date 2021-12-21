@@ -3,6 +3,7 @@
     --primary-color: #929d76;
     --gradient-color: #887b6d;
     --secondary-color: #656b55;
+    --panel-background-color: lightgoldenrodyellow;
 }
 
 body {
@@ -65,8 +66,7 @@ main div {
 
 /* Editor styles */
 .editor {
-    /*background-color: aquamarine;*/
-    background-color: lightgoldenrodyellow;
+    background-color: var(--panel-background-color);
     flex-basis: 50%;
 }
 
@@ -82,7 +82,7 @@ textarea:focus, input:focus{
 
 /* Markdown preview styles */
 .preview {
-    background-color: lightgoldenrodyellow;
+    background-color: var(--panel-background-color);
     flex-basis: 50%;
 }
 
