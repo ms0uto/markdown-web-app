@@ -13,26 +13,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-     <nav x-data="{ openMenu: false, openInfo: false }">
+     <nav x-data="{ openMenu: false }">
         <button title="Menu" @click="openMenu = ! openMenu"><i class="fa fa-bars"></i></button>
-        <div x-show="openMenu" @click.outside="openInfo = false; openMenu = false" x-transition.duration.500ms>
-            <button title="Info" @click="openInfo = ! openInfo"><i class="fa fa-question-circle"></i></button>
-                <div class="infoDialog" x-show="openInfo">
-                    <p>Write your code on the left panel<br>and watch the result on the right side!</p>
-                </div>
+        <div x-show="openMenu" @click.outside="openMenu = false" x-transition.duration.550ms>
             <button title="Open" @click="open()"><i class="fa fa-folder"></i></button>
                 <input type="file"  style="display: none;" name="inputfile" id="inputfile">
             <button title="Download" @click="download()"><i class="fa fa-cloud-download"></i></button>
         </div>
+        <button id="theme-btn" title="Theme"><i class="fa fa-moon-o"></i></button>
     </nav>
     <main x-data="{ markdown: defaultText }">
         <div class="editor">
-            <h2 class="title">Editor</h2>
+            <h3 class="title"><i class="fa fa-code" aria-hidden="true">CODE</i></h3>
             <textarea id="text-area" x-model="markdown" style="resize: none;"></textarea>
         </div>
         <div class="preview" >
-            <h2 class="title">Markdown Preview</h2>
-            <div id="markdown" x-html="marked.parse(markdown)"></div>
+            <h3 class="title"><i class="fa fa-medium" aria-hidden="true">ARKDOWN</i></h3>
+	    <div id="markdown" x-html="marked.parse(markdown)"></div>
         </div>
     </main>
     <footer>

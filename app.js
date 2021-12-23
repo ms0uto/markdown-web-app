@@ -1,23 +1,15 @@
-const defaultText = `Example Heading
+const defaultText = `Hello &#x270B;
 =======
-Sub-heading
------------
 
-## Code block
+This is a live markdown editor built in plain HTML,<br> CSS and AlpineJS &#128507;
 
-\`\`\`JavaScript
-function add(a, b){
-   return a + b;
-}
-add(3, 4);
-\`\`\`
+### Some useful links:
 
-## Links
-<a href="https://github.com/ms0uto" target="_blank">Personal github page (new tab)</a>
+* <a href="https://github.com/ms0uto" target="_blank">Markdown guide</a>
 
-[Google home page (same tab)](https://google.com/)
+* <a href="https://github.com/ms0uto" target="_blank">Personal github page</a>
 
-## Images
+### It can even do images!
 
 ![Code](https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Small.png)
 `
