@@ -11,6 +11,9 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
      <nav x-data="{ openMenu: false }">
@@ -24,11 +27,11 @@
     </nav>
     <main x-data="{ markdown: defaultText }">
         <div class="editor">
-            <h3 class="title"><i class="fa fa-code" aria-hidden="true">CODE</i></h3>
+            <h2 class="title"><i class="fa fa-code" aria-hidden="true">CODE</i></h2>
             <textarea id="text-area" x-model="markdown" style="resize: none;"></textarea>
         </div>
         <div class="preview" >
-            <h3 class="title"><i class="fa fa-medium" aria-hidden="true">ARKDOWN</i></h3>
+            <h2 class="title"><i class="fa fa-medium" aria-hidden="true">ARKDOWN</i></h2>
 	    <div id="markdown" x-html="marked.parse(markdown)"></div>
         </div>
     </main>
