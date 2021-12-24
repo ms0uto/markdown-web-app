@@ -44,3 +44,6 @@ function open() {
 function toggleTheme() {
   document.body.classList.toggle("theme-dark");
 }
+
+/* Start in dark theme for now */
+window.onload = toggleTheme;
