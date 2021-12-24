@@ -20,8 +20,6 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
      <nav x-data="{ openMenu: false }">
@@ -31,7 +29,7 @@
                 <input type="file"  style="display: none;" name="inputfile" id="inputfile">
             <button title="Download" @click="download()"><i class="fa fa-cloud-download"></i></button>
         </div>
-        <button id="theme-btn" title="Theme"><i class="fa fa-moon-o"></i></button>
+        <button id="theme-btn" title="Theme" @click="toggleTheme()"><i class="fa fa-moon-o"></i></button>
     </nav>
     <main x-data="{ markdown: defaultText }">
         <div class="editor">

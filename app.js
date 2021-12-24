@@ -26,6 +26,7 @@ function download() {
   anchor.click();
   document.body.removeChild(anchor);
 }
+
 function open() {
   inputfile.click();
   document.getElementById("inputfile").addEventListener("change", function () {
@@ -38,4 +39,8 @@ function open() {
     };
     fr.readAsText(this.files[0]);
   });
+}
+
+function toggleTheme() {
+  document.body.classList.toggle("theme-dark");
 }

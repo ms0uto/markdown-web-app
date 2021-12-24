@@ -1,50 +1,40 @@
-
-:root {
-    /* Theme variables */
-    --primary-color: #FF79C6;
-    --gradient-color: #FF79C6;
-    --secondary-color: #282A36;
-    --panel-background-color: #282A36;
-    /* Dracula theme */
-    --dracula-cursorColor: #F8F8F2;
-    --dracula-selectionBackground: #44475A;
-    --dracula-background: #282A36;
-    --dracula-foreground: #F8F8F2;
-    --dracula-black: #21222C;
-    --dracula-blue: #BD93F9;
-    --dracula-cyan: #8BE9FD;
-    --dracula-green: #50FA7B;
-    --dracula-purple: #FF79C6;
-    --dracula-red: #FF5555;
-    --dracula-white: #F8F8F2;
-    --dracula-yellow: #F1FA8C;
-    --dracula-brightBlack: #6272A4;
-    --dracula-brightBlue: #D6ACFF;
-    --dracula-brightCyan: #A4FFFF;
-    --dracula-brightGreen: #69FF94;
-    --dracula-brightPurple: #FF92DF;
-    --dracula-brightRed: #FF6E6E;
-    --dracula-brightWhite: #FFFFFF; 
-    --dracula-brightYellow: #FFFFA5;
-}
-
 body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: var(--secondary-color);
-    /*background-image: linear-gradient(to right, var(--secondary-color), var(--gradient-color));*/
-    background-image: linear-gradient(360deg, var(--secondary-color), var(--gradient-color));
+    /* Starting theme */
+    --color-primary: #0060df;
+    --color-secondary: #fbfbfe;
+    --color-accent: #fd6f53;
+    --font-color: #000000;
+    --color-title: #2a2c2d; 
+    --gradient-color-start: #fd6f53;
+    --gradient-color-end: #ebbcb3;
+    background-color: var(--color-secondary);
+    background-image: linear-gradient(360deg, var(--gradient-color-start), var(--gradient-color-end));
+}
+
+.theme-dark {
+    --color-primary: #17ed90;
+    --color-secondary: #2a2c2d;
+    --color-accent: #44475A;
+    --font-color: #ffffff;
+    --color-title: #2a2c2d; 
+    --gradient-color-start: #2a2c2d;
+    --gradient-color-end: #FF79C6;
+}
+.theme-dark i {
+    color: var(--color-primary);
 }
 
 /* Navigation bar */
 nav {
     display: flex;
-    background-color:  var(--secondary-color);
+    background-color:  var(--color-secondary);
 }
 /* Style buttons */
 nav button {
-    background-color: var(--secondary-color); 
+    background-color: var(--color-secondary); 
     border: none; 
     color: var(--dracula-white); 
     padding: 12px 16px; 
@@ -53,7 +43,7 @@ nav button {
   }
 
 nav button:hover {
-    background-color: var(--dracula-selectionBackground);
+    background-color: var(--color-accent);
 }
 
 #theme-btn {
@@ -73,21 +63,24 @@ main div {
 
 .title {
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--color-title);
+}
+
+.title i {
+    color: var(--color-title);
 }
 
 /* Editor styles */
 .editor {
-    /*background-color: var(--panel-background-color);*/
     flex-basis: 50%;
 }
 
 textarea {
     min-height: 90%;
     width: 100%;
-    background-color: var(--dracula-background);
+    background-color: var(--color-secondary);
     border: 2px solid black;
-    color: var(--dracula-white);
+    color: var(--font-color);
 }
 
 textarea:focus, input:focus{
@@ -96,13 +89,13 @@ textarea:focus, input:focus{
 
 /* Markdown preview styles */
 .preview {
-    /*background-color: var(--panel-background-color);*/
     flex-basis: 50%;
 }
 
 #markdown {
     height: 90%;
-    background-color: var(--dracula-white);
+    color: black;
+    background-color: whitesmoke;
     border: 2px solid black;
     overflow-y: auto;
 }
@@ -131,10 +124,10 @@ textarea:focus, input:focus{
 /* Footer styles */
 footer {
     height: 5%;
-    color: whitesmoke;
+    color: var(--font-color);
     text-align: center;
     font-weight: bold;
 }
 footer a {
-    color: whitesmoke;
+    color: var(--font-color);
 }
