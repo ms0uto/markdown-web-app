@@ -120,6 +120,7 @@ textarea {
   background-color: var(--color-secondary);
   color: var(--font-color);
   padding: 2%;
+  border: none;
 }
 
 textarea:focus,
