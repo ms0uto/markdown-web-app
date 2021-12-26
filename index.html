@@ -21,29 +21,30 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-     <nav x-data="{ openMenu: false }">
-        <button title="Menu" @click="openMenu = ! openMenu"><i class="fa fa-bars"></i></button>
-        <div x-show="openMenu" @click.outside="openMenu = false" x-transition.duration.550ms>
-            <button title="Open" @click="open()"><i class="fa fa-folder"></i></button>
-                <input type="file"  style="display: none;" name="inputfile" id="inputfile">
-            <button title="Download" @click="download()"><i class="fa fa-cloud-download"></i></button>
+    <div class="Container" x-data="{ markdown: defaultText }">
+        <div class="Menu">
+            <nav x-data="{ openMenu: true }">
+                <button title="Menu" @click="openMenu = ! openMenu"><i class="fa fa-bars"></i></button>
+                <div x-show="openMenu" @click.outside="openMenu = false" x-transition.duration.550ms>
+                    <button title="Open" @click="open()"><i class="fa fa-folder"></i></button>
+                    <input type="file" style="display: none;" name="inputfile" id="inputfile">
+                    <button title="Download" @click="download()"><i class="fa fa-cloud-download"></i></button>
+                    <button id="theme-btn" title="Theme" @click="toggleTheme()"><i class="fa fa-moon-o"></i></button>
+                </div>
+            </nav>
+            <div class="Editor">
+                <textarea id="text-area" x-model="markdown" style="resize: none;"></textarea>
+            </div>
         </div>
-        <button id="theme-btn" title="Theme" @click="toggleTheme()"><i class="fa fa-moon-o"></i></button>
-    </nav>
-    <main x-data="{ markdown: defaultText }">
-        <div class="editor">
-            <h2 class="title"><i class="fa fa-code" aria-hidden="true">CODE</i></h2>
-            <textarea id="text-area" x-model="markdown" style="resize: none;"></textarea>
+        <div class="Markdown" x-html="marked.parse(markdown)">
         </div>
-        <div class="preview" >
-            <h2 class="title"><i class="fa fa-medium" aria-hidden="true">ARKDOWN</i></h2>
-	    <div id="markdown" x-html="marked.parse(markdown)"></div>
-        </div>
-    </main>
+    </div>
     <footer>
         <p>@Copyright 2022 developed by <a href="https://github.com/ms0uto" target="_blank">ms0uto</a></p>
     </footer>
 </body>
 <script src="./app.js"></script>
+
 </html>

@@ -3,6 +3,8 @@ const defaultText = `Hello &#x270B;
 
 This is a live markdown editor built in plain HTML,<br> CSS and AlpineJS &#128507;
 
+Write your code on the left area and watch the result on real time here!
+
 ### Some useful links:
 
 * <a href="https://github.com/ms0uto" target="_blank">Markdown guide</a>
